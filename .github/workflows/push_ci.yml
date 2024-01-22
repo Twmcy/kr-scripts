@@ -32,7 +32,6 @@ jobs:
         KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
         KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
       run: |
-        echo 'org.gradle.jvmargs=-Xmx3072m' >> gradle.properties
         echo "${{ secrets.SIGN_FILE_BASE64 }}" | base64 -d > keystore.jks
         chmod 777 *
         ./gradlew :app:assembleRelease
